@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "The Marquis",
   description:
     "Marquis is an open-source gaming platform built for on-chain mobile games on Starknet",
-  icons: "/logomark.svg",
+  icons: "/App_logo.png",
   openGraph: {
     title: "The Marquis",
     description:
@@ -43,6 +43,7 @@ const ScaffoldStarkApp = ({ children }: { children: React.ReactNode }) => {
   return (
     <html suppressHydrationWarning>
       <body>
+        
         <ThemeProvider
           enableSystem={false}
           forcedTheme="dark"
