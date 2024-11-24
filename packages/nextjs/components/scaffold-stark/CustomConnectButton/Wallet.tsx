@@ -26,6 +26,7 @@ const Wallet = ({
       onClick={(e) => {
         setClicked(true);
         handleConnectWallet(e, connector);
+        
       }}
     >
       <div className="flex items-center gap-[60px]">

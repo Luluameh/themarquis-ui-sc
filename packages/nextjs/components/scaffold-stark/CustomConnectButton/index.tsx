@@ -39,11 +39,11 @@ export const CustomConnectButton = () => {
   return status == "disconnected" ? (
     <>
       <div
-        className="hidden connect-btn  md:flex h-[50px] gap-3"
+        className="hidden connect-btn  md:flex h-[50px] gap-3 whitespace-nowrap"
         onClick={handleWalletConnect}
       >
         <Image src={ConnectWalletIcon} alt="icon" />
-        <button type="button" className="text-[20px]">
+        <button type="button" className="text-[20px] ">
           Connect Wallet
         </button>
       </div>

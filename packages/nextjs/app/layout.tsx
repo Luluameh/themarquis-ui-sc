@@ -6,10 +6,13 @@ import "~~/styles/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://themarquis.xyz/"),
-  title: "The Marquis",
+  title: {
+    default: "The Marquis",
+    template: "%s - The Marquis",
+  },
   description:
     "Marquis is an open-source gaming platform built for on-chain mobile games on Starknet",
-  icons: "/logomark.svg",
+  icons: "/favicon.svg",
   openGraph: {
     title: "The Marquis",
     description:
