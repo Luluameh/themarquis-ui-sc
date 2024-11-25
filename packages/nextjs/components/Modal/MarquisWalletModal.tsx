@@ -31,7 +31,7 @@ const MarquisSettingSide = ({
     <div className="flex flex-col gap-4 mt-[4px]">
       <div
         onClick={() => copyToClipboardAction(referralCode)}
-        className="cursor-pointer py-[18px] px-3 rounded-[8px]  bg-[#2E353C] hover:bg-[#2E353C] flex items-center gap-3"
+        className="cursor-pointer  px-4 rounded-[8px]  bg-[#2E353C] hover:bg-[#2E353C] flex items-center gap-3 max-h-[47px] h-[47px]"
       >
         <Image src={"/copy-right.svg"} alt="icon" width={14} height={14} />
         <p>Copy Referral Code</p>
@@ -41,14 +41,14 @@ const MarquisSettingSide = ({
           setIsInvitationOpen(true);
           onClose();
         }}
-        className="cursor-pointer py-[18px] px-3 rounded-[8px]  bg-[#2E353C] hover:bg-[#2E353C] flex items-center gap-3"
+        className="cursor-pointer  px-4 rounded-[8px]  bg-[#2E353C] hover:bg-[#2E353C] flex items-center gap-3 max-h-[47px] h-[47px]"
       >
         <Image src={"/friends.svg"} alt="icon" width={14} height={14} />
         <p>Invite Friend</p>
       </div>
       <div
         onClick={onLogout}
-        className="cursor-pointer py-[18px] px-3 rounded-[8px]  bg-[#2E353C] hover:bg-[#2E353C] flex items-center gap-3"
+        className="cursor-pointer  px-4 rounded-[8px]  bg-[#2E353C] hover:bg-[#2E353C] flex items-center gap-3 max-h-[47px] h-[47px]"
       >
         <Image src={"/logout-icon.svg"} alt="icon" width={14} height={14} />
         <p>Log out</p>
@@ -198,7 +198,7 @@ export default function MarquisWalletModal({
 
           <div>
             <div
-              className="text-[20px] font-semibold cursor-pointer mt-[44px] whitespace-nowrap"
+              className="text-[20px] font-semibold cursor-pointer mt-[30px] whitespace-nowrap"
               onClick={() => copyToClipboard(data?.user?.email)}
             >
               <p className="text-center">{data?.user?.email}</p>
@@ -223,10 +223,10 @@ export default function MarquisWalletModal({
             </div>
 
             {/* here it is  */}
-            <div className="p-3 bg-[#21262B] rounded-xl ">
+            <div className="p-4 bg-[#21262B] rounded-xl ">
               <div className="rounded-lg   ">
-                <div className="bg-[#2E353C] rounded-lg p-3 mb-4 hover:bg-[#2A3036] transition-colors ">
-                  <div className="flex items-center justify-center text-white mb-2 text-[16px] font-Arial font-bold">
+                <div className="bg-[#2E353C] rounded-lg p-4 mb-4 hover:bg-[#2A3036] transition-colors ">
+                  <div className="flex items-center justify-center text-white mb-2 text-[14px] font-Arial font-bold">
                     Balance
                   </div>
 

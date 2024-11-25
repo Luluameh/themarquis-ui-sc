@@ -7,6 +7,7 @@ import useScaffoldEthBalance from "~~/hooks/scaffold-stark/useScaffoldEthBalance
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { notification } from "~~/utils/scaffold-stark";
+import back_walletIcon from "@/public/back_walletIcon.svg";
 
 interface ModalWalletProps {
   isOpen: boolean;
@@ -86,7 +87,7 @@ export default function WalletModal({ isOpen, onClose }: ModalWalletProps) {
         },
         (err) => {
           console.error("Failed to copy: ", err);
-        },
+        }
       );
     }
   };
@@ -106,7 +107,7 @@ export default function WalletModal({ isOpen, onClose }: ModalWalletProps) {
       >
         <div
           ref={modalRef}
-          className={`font-arial w-[355px] h-[520px] rounded-[30px] px-[30px] py-[36px] bg-[#171C20] transition-all duration-300 transform ${
+          className={`font-arial w-[355px] h-auto rounded-[30px] px-[30px] py-[36px] bg-[#171C20] transition-all duration-300 transform ${
             animateModal
               ? "scale-100 translate-y-0 opacity-100"
               : "scale-90 translate-y-10 opacity-0"
@@ -128,82 +129,103 @@ export default function WalletModal({ isOpen, onClose }: ModalWalletProps) {
                 )}
                 <p className="text-[14px] font-bold">Wallet</p>
               </div>
-              <Image
+              <button
+                onClick={onClose}
+                className=" hover:text-gray-400 transition-colors"
+              >
+                X
+              </button>
+
+              {/* <Image
                 onClick={() => setIsOpenSetting((prev) => !prev)}
                 className="cursor-pointer"
                 src={"/setting.svg"}
                 alt="icon"
                 width={12}
                 height={12}
-              />
+              /> */}
             </div>
-            {isOpenSetting ? (
+            {/* {isOpenSetting ? (
               <WalletSettingSide onLogout={handleDisconnectWallet} />
-            ) : (
-              <div>
-                <div className="text-[20px] font-semibold  flex items-center justify-center mt-[57px]">
-                  <p
-                    className="cursor-pointer"
-                    onClick={() => copyToClipboard(address ? address : "")}
-                  >
-                    {address?.slice(0, 6) + "..." + address?.slice(-4)}
-                  </p>
-                </div>
-                <div
-                  onClick={() => {
-                    router.push("/deposit");
-                    onClose();
-                  }}
-                  className="bg-[#00ECFF] cursor-pointer w-[118px] h-[31px] mx-auto rounded-[2px] mt-[17px]  flex items-center justify-center gap-1"
+            ) : ( )} */}
+            <div>
+              <div className="text-[20px] font-semibold  flex items-center justify-center mt-[57px]">
+                <p
+                  className="cursor-pointer"
+                  onClick={() => copyToClipboard(address ? address : "")}
                 >
-                  <Image
-                    src={"/withdraw-dropdown.svg"}
-                    alt="icon"
-                    width={14}
-                    height={14}
-                  />
-                  <p className="text-[#000] text-[14px] font-medium">Deposit</p>
-                </div>
-                <div className="text-white font-bold mt-[41px] text-[14px] flex items-center justify-center w-full h-[35px] bg-[#21262B] rounded-[8px]">
-                  Balance
-                </div>
-                <div className="flex flex-col gap-[23px] mt-[35px]">
-                  <div className="flex justify-between items-center">
-                    <Image
-                      src={"/logo-starknet.svg"}
-                      alt="icon"
-                      width={22}
-                      height={22}
-                    />
-                    <p className="text-[14px] uppercase text-right">
-                      {parseFloat(strkBalanceWallet.formatted).toFixed(2)} STRK
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <Image
-                      src={"/logo-eth.svg"}
-                      alt="icon"
-                      width={22}
-                      height={22}
-                    />
-                    <p className="text-[14px] uppercase text-right">
-                      {parseFloat(ethBalanceWallet.formatted).toFixed(8)} ETH
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <Image
-                      src={"/usdc.svg"}
-                      alt="icon"
-                      width={22}
-                      height={22}
-                    />
-                    <p className="text-[14px] uppercase text-right text-[#7A7A7A]">
-                      0.00 USDC
-                    </p>
-                  </div>
-                </div>
+                  {address?.slice(0, 6) + "..." + address?.slice(-4)}
+                </p>
               </div>
-            )}
+              <div
+                onClick={() => {
+                  router.push("/deposit");
+                  onClose();
+                }}
+                className="bg-[#00ECFF] cursor-pointer w-[118px] h-[31px] mx-auto rounded-[2px] mt-[17px]  flex items-center justify-center gap-1"
+              >
+                <Image
+                  src={"/withdraw-dropdown.svg"}
+                  alt="icon"
+                  width={14}
+                  height={14}
+                />
+                <p className="text-[#000] text-[14px] font-medium">Deposit</p>
+              </div>
+
+              <div className="bg-[#21262B] mt-[30px] p-[10px] rounded-md  max-h-[272px]">
+                <div className="bg-[#2E353C]   p-[12px] rounded-md mb-[8px]">
+                  <div className="text-white font-bold text-[14px] flex items-center justify-center w-full h-[35px]  rounded-[8px]">
+                    Balance
+                  </div>
+                  <div className="flex flex-col gap-[23px] mt-[35px]">
+                    <div className="flex justify-between items-center">
+                      <Image
+                        src={"/logo-starknet.svg"}
+                        alt="icon"
+                        width={22}
+                        height={22}
+                      />
+                      <p className="text-[14px] uppercase text-right">
+                        {parseFloat(strkBalanceWallet.formatted).toFixed(2)}
+                        STRK
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <Image
+                        src={"/logo-eth.svg"}
+                        alt="icon"
+                        width={22}
+                        height={22}
+                      />
+                      <p className="text-[14px] uppercase text-right">
+                        {parseFloat(ethBalanceWallet.formatted).toFixed(8)} ETH
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <Image
+                        src={"/usdc.svg"}
+                        alt="icon"
+                        width={22}
+                        height={22}
+                      />
+                      <p className="text-[14px] uppercase text-right text-[#7A7A7A]">
+                        0.00 USDC
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  className="w-full bg-[#2E353C] hover:bg-[#2E353C] text-white font-medium py-2 rounded-md mb-4 transition-colors max-h-[47px] h-[47px]"
+                  onClick={handleDisconnectWallet}
+                >
+                  <span className="flex ml-2  gap-2">
+                    <Image src={back_walletIcon} alt={"icon"} />
+                    Disconnect
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
